@@ -8,61 +8,59 @@ namespace DevizeBiciclete.Domain
 {
     public class DevizSetari
     {
-        string titlu = "DEVIZ";
-        ServiceData service = new ServiceData();
-        CertificatData certificat = new CertificatData();
-        SemnaturaServiceData semnatura = new SemnaturaServiceData();
-        Bitmap logo;
+        static string titlu = "DEVIZ";
+        //ServiceData service;
+        //CertificatData certificat;
+        //SemnaturaServiceData semnatura;
+        //Bitmap logo;
 
         public string Titlu { get => titlu; set => titlu = value; }
-        public ServiceData Service { get => service; set => service = value; }
-        public CertificatData Certificat { get => certificat; set => certificat = value; }
-        public SemnaturaServiceData Semnatura { get => semnatura; set => semnatura = value; }
-        public Bitmap Logo { get => logo; set => logo = value; }
+        //public ServiceData Service { get => service; set => service = value; }
+        //public CertificatData Certificat { get => certificat; set => certificat = value; }
+        //public SemnaturaServiceData Semnatura { get => semnatura; set => semnatura = value; }
+        //public Bitmap Logo { get => logo; set => logo = value; }
 
-        public class ServiceData
+        public static class Service
         {
-            string titlu="Service";
-            string nume="";
-            string adresa = "";
-            string email = "";
-            string telefon = "";
-            string registru = ""; //
-            string ro = "";
+            static string titlu ="Service";
+            static string nume = "";
+            static string adresa = "";
+            static string email = "";
+            static string telefon = "";
+            static string registru = ""; //
+            static string ro = "";
 
-            public string Titlu { get => titlu; set => titlu = value; } 
-            public string Nume { get => nume; set => nume = value; }    
-            public string Adresa { get => adresa; set => adresa = value; }
-            public string Email { get => email; set => email = value; }
-            public string Telefon { get => telefon; set => telefon = value;}
-            public string Registru { get => registru; set => registru = value; }
-            public string RO { get => ro; set => ro = value; }
+            public static string Titlu { get => titlu; set => titlu = value; } 
+            public static string Nume { get => nume; set => nume = value; }    
+            public static string Adresa { get => adresa; set => adresa = value; }
+            public static string Email { get => email; set => email = value; }
+            public static string Telefon { get => telefon; set => telefon = value;}
+            public static string Registru { get => registru; set => registru = value; }
+            public static string RO { get => ro; set => ro = value; }
 
         }
 
-        public class CertificatData
+        public static class Certificat
         {
-            string title="CERTIFICAT DE CALITATE SI GARANTIE";
-            string intro;
-            List<string> linii;
-            string final;
+            static string title ="CERTIFICAT DE CALITATE SI GARANTIE";
+            static string intro;
+            static List<string> linii;
+            static string final;
 
-            public string Title { get => title; set => title = value; }
-            public string Intro { get => intro; set => intro = value; }
-            public List<string> Linii { get => linii; set => linii = value;}
-            public string Final { get => final; set => final = value; }
+            public static string Title { get => title; set => title = value; }
+            public static string Intro { get => intro; set => intro = value; }
+            public static List<string> Linii { get => linii; set => linii = value;}
+            public static string Final { get => final; set => final = value; }
         }
 
-        public class SemnaturaServiceData
+        public static class SemnaturaService
         {
-            string titlu = "Semnatura Service";
-            string text;
-            Bitmap image;
-            public string Titlu { get => titlu; set => titlu = value;}
-            public Bitmap Image { get => image; set => image = value; }
-            public string Text { get => text; set => text = value; }
+            static string titlu = "Semnatura Service";
+            static string text;
+            static Bitmap image;
+            public static string Titlu { get => titlu; set => titlu = value;}
+            public static Bitmap Image { get => image; set => image = value; }
+            public static string Text { get => text; set => text = value; }
         }
-
-        
     }
 }

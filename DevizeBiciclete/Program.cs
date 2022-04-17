@@ -1,3 +1,5 @@
+using DevizeBiciclete.Test;
+
 namespace DevizeBiciclete
 {
     internal static class Program
@@ -11,6 +13,7 @@ namespace DevizeBiciclete
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+            TestDomain.Run();
             Application.Run(new TestForm());
         }
     }

@@ -1,4 +1,5 @@
 using DevizeBiciclete.Test;
+using DevizeBiciclete.Domain;
 
 namespace DevizeBiciclete
 {
@@ -13,8 +14,9 @@ namespace DevizeBiciclete
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+            DevizSetari.Logo.Save("logo.png");
             TestDomain.Run();
-            Application.Run(new TestForm());
+            //Application.Run(new TestForm());
         }
     }
 }

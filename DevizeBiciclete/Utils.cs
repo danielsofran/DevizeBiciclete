@@ -28,5 +28,13 @@ namespace DevizeBiciclete
             DateTime dt = new DateTime(int.Parse(tokens[0]), int.Parse(tokens[1]), int.Parse(tokens[2]));
             return dt;
         }
+        public static bool AreDiacritice(this string str)
+        {
+            string diacritice = "ăîâșț";
+            foreach(char ch in diacritice)
+                if(str.Contains(ch))
+                    return true;
+            return false;
+        }
     }
 }

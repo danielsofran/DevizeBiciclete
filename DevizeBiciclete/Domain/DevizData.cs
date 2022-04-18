@@ -8,14 +8,17 @@ namespace DevizeBiciclete.Domain
 {
     public class DevizData
     {
+        long numar=0;
         ClientData client = new ClientData();
         BicicletaData bicicleta = new BicicletaData();
         ConstatareData constatare = new ConstatareData();
         List<ManoperaData> manopere = new List<ManoperaData>();
         List<PiesaData> piese = new List<PiesaData>();
+        float tva = DevizSetari.TVA;
 
         public static DevizData? Empty = null;
 
+        public long Numar { get { return numar; } set { numar = value; } }
         public ClientData Client { get { return client; } set { client = value; } }
         public BicicletaData Bicicleta { get { return bicicleta; } set { bicicleta = value; } }
         public ConstatareData Constatare { get { return constatare; } set { constatare = value; } }
@@ -23,12 +26,17 @@ namespace DevizeBiciclete.Domain
         public List<PiesaData> Piese { get { return piese; } set { piese = value; } }
 
         public float TotalPiese { get { return piese.Sum((piesa) => piesa.PretTotal);  } }
-        public float TotalManopera { get { return piese.Sum((manopera) => manopera.PretTotal); } }
-        public float Total { get { return TotalPiese + TotalManopera; } }
+        public float TotalManopera { get { return manopere.Sum((manopera) => manopera.PretTotal); } }
+        public float TotalFaraTVA { get { return TotalPiese + TotalManopera; } }
+        public float TVA { get { return tva; } set { tva = value; } }
+        public float TVAdinTotal { get => TotalFaraTVA * TVA; }
+        public float TotalCuTVA { get { return TotalFaraTVA + TVAdinTotal; } }
 
         public override string ToString()
         {
             string sep = "$dev$", mansep="$manoprepo$", piesesep="$pieserepo$";
+            string tvas = tva.ToString();
+            string nr = numar.ToString();
             string client = Client.ToString();
             string bicicleta = Bicicleta.ToString();
             string constatare = Constatare.ToString();
@@ -37,7 +45,7 @@ namespace DevizeBiciclete.Domain
                 manopere+=manopera.ToString()+mansep;
             foreach(var piesa in Piese)
                 piese+=piesa.ToString()+piesesep;
-            return client+sep+bicicleta+sep+constatare+sep+manopere+sep+piese;
+            return nr+sep+client+sep+bicicleta+sep+constatare+sep+manopere+sep+piese+sep+tvas;
         }
 
         public static DevizData FromString(string txt)
@@ -46,17 +54,19 @@ namespace DevizeBiciclete.Domain
             string sep = "$dev$", mansep = "$manoprepo$", piesesep = "$pieserepo$";
             string[] tokens = txt.Split(new string[] { sep}, StringSplitOptions.None);
             DevizData deviz = new DevizData();
-            deviz.client = ClientData.FromString(tokens[0]);
-            deviz.bicicleta = BicicletaData.FromString(tokens[1]);
-            deviz.constatare = ConstatareData.FromString(tokens[2]);
-            string[] tokensman = tokens[3].Split(new string[] { mansep }, StringSplitOptions.None);
-            string[] tokenspiese = tokens[4].Split(new string[] { piesesep }, StringSplitOptions.None);
+            deviz.numar = Convert.ToInt64(tokens[0]);
+            deviz.client = ClientData.FromString(tokens[1]);
+            deviz.bicicleta = BicicletaData.FromString(tokens[2]);
+            deviz.constatare = ConstatareData.FromString(tokens[3]);
+            string[] tokensman = tokens[4].Split(new string[] { mansep }, StringSplitOptions.None);
+            string[] tokenspiese = tokens[5].Split(new string[] { piesesep }, StringSplitOptions.None);
             foreach(var manopera in tokensman)
                 if(manopera is not null && manopera != "")
                     deviz.manopere.Add(ManoperaData.FromString(manopera));
             foreach(var piese in tokenspiese)
                 if(piese is not null && piese != "")
                     deviz.piese.Add(PiesaData.FromString(piese));
+            deviz.tva = float.Parse(tokens[6]);
             return deviz;
         }
 
@@ -67,29 +77,41 @@ namespace DevizeBiciclete.Domain
             string adresa = "";
             string telefon = "";
             bool persoanaJuridica;
+            string registru = "";
+            string ro = "";
+            string telfirma = "";
+            string denumire = "";
 
             public string Nume { get { return nume; } set { nume = value; } }
             public string Adresa { get { return adresa; } set { adresa = value; } }
             public bool PersoanaJuridica { get { return persoanaJuridica; } set { persoanaJuridica = value; } }
             public bool PersoanaFizica { get => !persoanaJuridica; set => persoanaJuridica = !value; }
             public string Telefon { get { return telefon; } set { telefon = value; } }
+            public string Registru { get { return registru; } set { registru = value; } }
+            public string RO { get { return ro; } set { ro = value; } }
+            public string TelefonFrima { get => telfirma; set { telfirma = value; } }
+            public string Denumire { get { return denumire; } set { denumire = value; } }
             
             public override string ToString()
             {
                 string sep = "$cli$";
-                return string.Format("{0}{1}{2}{3}{4}{5}{6}", nume, sep, 
-                    adresa, sep, telefon, sep, persoanaJuridica.ToString());
+                return string.Format("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}{13}{14}", nume, sep, 
+                    adresa, sep, telefon, sep, persoanaJuridica.ToString(), sep, registru, sep, ro, sep, telfirma, sep, denumire);
             }
             public static ClientData FromString(string txt)
             {
                 string sep = "$cli$";
                 string[] tokens = txt.Split(new string[] { sep }, StringSplitOptions.None);
-                if (tokens.Length != 4) MessageBox.Show("Citire date client eronata!");
+                if (tokens.Length != 8) MessageBox.Show("Citire date client eronata!");
                 ClientData rez = new ClientData();
                 rez.nume = tokens[0];
                 rez.adresa = tokens[1];
                 rez.telefon = tokens[2];
                 rez.persoanaJuridica = bool.Parse(tokens[3]);
+                rez.registru = tokens[4];
+                rez.ro = tokens[5];
+                rez.telfirma = tokens[6];
+                rez.denumire = tokens[7];
                 return rez;
             }
             
@@ -98,7 +120,10 @@ namespace DevizeBiciclete.Domain
                 return  c1.nume.Egal(c2.nume) && 
                         c1.adresa.Egal(c2.adresa) &&
                         c1.telefon.Egal(c2.telefon) &&
-                        c1.persoanaJuridica == c2.persoanaJuridica;
+                        c1.persoanaJuridica == c2.persoanaJuridica &&
+                        c1.registru.Egal(c2.registru) &&
+                        c1.ro.Egal(c2.ro) &&
+                        c1.telfirma.Egal(c2.telfirma);
             }
             public static bool operator!=(ClientData c1, ClientData c2) => !(c1 == c2);
         }
@@ -144,8 +169,8 @@ namespace DevizeBiciclete.Domain
             public string Motiv { get { return motiv; } set { motiv = value; } }
             public DateTime DataIn { get { return datain; } set { datain = value; } }
             public DateTime DataOut { get { return dataout; } set { dataout = value; } }
-            public string DataInText { get => string.Format("{0}.{1}.{2}", datain.Day, datain.Month, datain.Year); }
-            public string DataOutText { get => string.Format("{0}.{1}.{2}", dataout.Day, dataout.Month, dataout.Year); }
+            public string DataInText { get => string.Format("{0:00}.{1:00}.{2:0000}", datain.Day, datain.Month, datain.Year); }
+            public string DataOutText { get => string.Format("{0:00}.{1:00}.{2:0000}", dataout.Day, dataout.Month, dataout.Year); }
 
             public override string ToString()
             {

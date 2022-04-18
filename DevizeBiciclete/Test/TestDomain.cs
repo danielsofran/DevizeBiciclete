@@ -22,7 +22,7 @@ namespace DevizeBiciclete.Test
             clientData.PersoanaJuridica = true;
             clientData.Adresa = "c.r.vivu";
             clientData.Telefon = "0729010188";
-            clientData.Nume = "Daniel";
+            clientData.Nume = "Sofran Daniel";
             Debug.Assert(DevizData.ClientData.FromString(clientData.ToString()) == clientData, "error fromstring tostring");
         }
 
@@ -39,7 +39,7 @@ namespace DevizeBiciclete.Test
         static void testConstatareData()
         {
             constatareData = new DevizData.ConstatareData();
-            constatareData.Motiv = "bani";
+            constatareData.Motiv = "roata stricata";
             constatareData.DataIn = new DateTime(2022, 02, 22);
             constatareData.DataOut = new DateTime(2022, 03, 05);
             Debug.Assert(DevizData.ConstatareData.FromString(constatareData.ToString()) == constatareData);
@@ -58,8 +58,8 @@ namespace DevizeBiciclete.Test
         {
             piesaData = new DevizData.PiesaData();
             piesaData.Nume = "piesa";
-            piesaData.Pret = 50f;
-            piesaData.Cod = "1v3cuy3v7vc683";
+            piesaData.Pret = 5050.23f;
+            piesaData.Cod = "3454354";
             piesaData.NrBuc = 3;
             Debug.Assert(DevizData.PiesaData.FromString(piesaData.ToString()) == piesaData);
         }
@@ -67,6 +67,7 @@ namespace DevizeBiciclete.Test
         static void testDeviz()
         {
             devizData = new DevizData();
+            devizData.Numar = 3;
             devizData.Client = clientData;
             devizData.Bicicleta = bicicletaData;
             devizData.Constatare = constatareData;
@@ -75,7 +76,7 @@ namespace DevizeBiciclete.Test
             devizData.Piese.Add(piesaData);
             devizData.Piese.Add(piesaData);
             devizData.Piese.Add(piesaData);
-            Debug.Assert(DevizData.FromString(devizData.ToString()).Constatare == constatareData);
+            Debug.Assert(DevizData.FromString(devizData.ToString()).TVA == devizData.TVA);
         }
 
         public static void Run()
@@ -86,9 +87,22 @@ namespace DevizeBiciclete.Test
             testManoperaData();
             testPiesaData();
             testDeviz();
-            MessageBox.Show(Application.StartupPath);
             string pdfpath = Application.StartupPath + "testpdf.pdf";
-            
+
+            try
+            {
+                devizData.ToPDF(pdfpath);
+                Process process = new Process();
+                process.StartInfo.FileName = "explorer.exe";
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.RedirectStandardOutput = true;
+                process.StartInfo.RedirectStandardError = true;
+                process.StartInfo.Arguments = pdfpath;
+                process.Start();
+            }
+            catch (Exception ex) { 
+                //MessageBox.Show(ex.Message);  
+            }
         }
     }
 }

@@ -6,29 +6,31 @@ using System.Threading.Tasks;
 
 namespace DevizeBiciclete.Domain
 {
-    public class DevizSetari
+    public static class DevizSetari
     {
         static string titlu = "DEVIZ";
         //ServiceData service;
         //CertificatData certificat;
         //SemnaturaServiceData semnatura;
-        //Bitmap logo;
+        static Bitmap logo = Resource.demologo;
 
-        public string Titlu { get => titlu; set => titlu = value; }
+        public static string Titlu { get => titlu; set => titlu = value; }
         //public ServiceData Service { get => service; set => service = value; }
         //public CertificatData Certificat { get => certificat; set => certificat = value; }
         //public SemnaturaServiceData Semnatura { get => semnatura; set => semnatura = value; }
-        //public Bitmap Logo { get => logo; set => logo = value; }
+        public static Bitmap Logo { get => logo; set => logo = value; }
+        public static float TVA = .19f; ////////////////////////////////////////// get from file
 
         public static class Service
         {
-            static string titlu ="Service";
-            static string nume = "";
-            static string adresa = "";
-            static string email = "";
-            static string telefon = "";
-            static string registru = ""; //
-            static string ro = "";
+            static string titlu ="Furnizor";
+            static string nume = "Bistritz Bike Shop SRL";
+            static string adresa = "Bistrita, str. Valer Braniste 12";
+            static string email = "email@email.com";
+            static string telefon = "07457070707"; // gresit?
+            static string registru = "J06/105/2018";
+            static string ro = "RO38802818";
+            //static string cif = "RO38802818";
 
             public static string Titlu { get => titlu; set => titlu = value; } 
             public static string Nume { get => nume; set => nume = value; }    
@@ -37,6 +39,7 @@ namespace DevizeBiciclete.Domain
             public static string Telefon { get => telefon; set => telefon = value;}
             public static string Registru { get => registru; set => registru = value; }
             public static string RO { get => ro; set => ro = value; }
+            //public static string CIF { get => cif; set => cif = value; }
 
         }
 

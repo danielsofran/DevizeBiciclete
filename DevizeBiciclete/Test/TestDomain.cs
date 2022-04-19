@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DevizeBiciclete.Domain;
 using System.Diagnostics;
+using DevizeBiciclete.Repo;
 
 namespace DevizeBiciclete.Test
 {
@@ -66,6 +67,12 @@ namespace DevizeBiciclete.Test
 
         static void testDeviz()
         {
+            testClientData();
+            testBicicletaData();
+            testConstatareData();
+            testManoperaData();
+            testPiesaData();
+
             devizData = new DevizData();
             devizData.Numar = 3;
             devizData.Client = clientData;
@@ -76,32 +83,49 @@ namespace DevizeBiciclete.Test
             devizData.Piese.Add(piesaData);
             devizData.Piese.Add(piesaData);
             devizData.Piese.Add(piesaData);
-            Debug.Assert(DevizData.FromString(devizData.ToString()).TVA == devizData.TVA);
+            Debug.Assert(DevizData.FromString(devizData.ToString()) == devizData);
+        }
+
+        static void testRepo()
+        {
+            Repository repo = new Repository();
+            repo.Path = "testrepo.txt";
+            repo.Add(devizData);          
+            testDeviz();
+            devizData.Client.Nume = "Alin Nagi";
+            repo.Add(devizData);
+            testDeviz();
+            devizData.Bicicleta.Model = "MOntan bike";
+            repo.Add(devizData);
+            repo.ToFile();
+            Debug.Assert(Repository.FromFile(repo.Path).ToList[0].Bicicleta == repo.ToList[0].Bicicleta);
+            File.Delete(repo.Path);
         }
 
         public static void Run()
         {
-            testClientData();
-            testBicicletaData();
-            testConstatareData();
-            testManoperaData();
-            testPiesaData();
+            
             testDeviz();
+            testRepo();
             string pdfpath = Application.StartupPath + "testpdf.pdf";
 
-            try
+            if (true)
             {
-                devizData.ToPDF(pdfpath);
-                Process process = new Process();
-                process.StartInfo.FileName = "explorer.exe";
-                process.StartInfo.UseShellExecute = false;
-                process.StartInfo.RedirectStandardOutput = true;
-                process.StartInfo.RedirectStandardError = true;
-                process.StartInfo.Arguments = pdfpath;
-                process.Start();
-            }
-            catch (Exception ex) { 
-                //MessageBox.Show(ex.Message);  
+                try
+                {
+                    devizData.ToPDF(pdfpath);
+                    Process process = new Process();
+                    process.StartInfo.FileName = "explorer.exe";
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.RedirectStandardError = true;
+                    process.StartInfo.Arguments = pdfpath;
+                    process.Start();
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show(ex.Message);  
+                }
             }
         }
     }

@@ -10,8 +10,8 @@ namespace DevizeBiciclete
     {
         public static bool Egal(this string s1, string s2)
         {
-            if (s1 is null) return true;
-            if (s2 is null) return true;
+            //if (s1 is null) return true;
+            //if (s2 is null) return true;
             return s1.Equals(s2);
         }
 
@@ -19,6 +19,16 @@ namespace DevizeBiciclete
         {
             return d1.Day == d2.Day && d1.Month == d2.Month && d1.Year == d2.Year;
         }
+
+        //public static bool Egal<T>(this List<T> lista1, List<T> lista2)
+        //{
+        //    int l;
+        //    if ((l=lista1.Count) != lista2.Count) return false;
+        //    for(int i=0;i<l;++i)
+        //        if(lista1[i] != lista2[i]) 
+        //            return false;
+        //    return true;
+        //}
 
         public static string Afis(this DateTime d) => string.Format("{0}.{1}.{2}", d.Year, d.Month, d.Day);
         public static DateTime FormatDate(string txt)

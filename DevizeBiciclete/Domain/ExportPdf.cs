@@ -1,6 +1,5 @@
 ﻿using Aspose.Pdf;
 using Aspose.Pdf.Text;
-using Aspose.Pdf.Builder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -279,7 +278,7 @@ namespace DevizeBiciclete.Domain
             table.CornerStyle = BorderCornerStyle.None;
             table.VerticalAlignment = VerticalAlignment.Center;
             table.HorizontalAlignment = Aspose.Pdf.HorizontalAlignment.Center;
-            table.ColumnWidths = "30 240 50 60 40 65";
+            table.ColumnWidths = "30 240 50 60 50 65";
 
             initTableHearder(table, "Nr.", "Manopera", "Durata (ore)", "Pret (RON)", "Discount", "Pret Total (RON)");
 
@@ -316,6 +315,38 @@ namespace DevizeBiciclete.Domain
             addRowCellsTotal(table, 3, "TOTAL DEVIZ FARA TVA", devizData.TotalFaraTVA, true);
             addRowCellsTotal(table, 4, "TVA", devizData.TVAdinTotal, true);
             addRowCellsTotal(table, 5, "TOTAL DEVIZ CU TVA", devizData.TotalCuTVA, true);
+
+            page.Paragraphs.Add(table);
+
+            #endregion
+
+            #region Semnaturi
+
+            initTable(out table, out cellst, out celldr);
+            table.Margin.Top += 30;
+            table.Margin.Left -= 30;
+
+            initFragmentSubtitlu(out fragmentSubtitlu);
+            fragmentSubtitlu.Text = "Semnatura furnizor";
+            fragmentSubtitlu.TextState.FontSize = 18;
+            cellst.Paragraphs.Add(fragmentSubtitlu);
+            initFragmentSubtitlu(out fragmentSubtitlu);
+            fragmentSubtitlu.Text = "Semnatura client";
+            fragmentSubtitlu.TextState.FontSize = 18;
+            celldr.Paragraphs.Add(fragmentSubtitlu);
+
+            initFragmentSubtitlu(out fragmentSubtitlu);
+            fragmentSubtitlu.Text = DevizSetari.Service.Nume;
+            fragmentSubtitlu.TextState.FontSize = 18;
+            fragmentSubtitlu.TextState.FontStyle = FontStyles.Regular;
+            fragmentSubtitlu.Margin.Top = 0;
+            cellst.Paragraphs.Add(fragmentSubtitlu);
+            initFragmentSubtitlu(out fragmentSubtitlu);
+            fragmentSubtitlu.Text = devizData.Client.Nume;
+            fragmentSubtitlu.TextState.FontSize = 18;
+            fragmentSubtitlu.TextState.FontStyle = FontStyles.Regular;
+            fragmentSubtitlu.Margin.Top = 0;
+            celldr.Paragraphs.Add(fragmentSubtitlu);
 
             page.Paragraphs.Add(table);
 

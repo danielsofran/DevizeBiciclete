@@ -70,6 +70,24 @@ namespace DevizeBiciclete.Domain
             return deviz;
         }
 
+        public static bool operator==(DevizData d1, DevizData d2)
+        { 
+            if(d1.numar != d2.numar) return false;
+            if(d1.bicicleta != d2.bicicleta) return false;
+            if(d1.tva != d2.tva) return false;
+            if(d1.client != d2.client) return false;
+            if(d1.constatare != d2.constatare) return false;
+            int lp, lm;
+            if((lp=d1.piese.Count) != d2.Piese.Count) return false;
+            if((lm=d1.manopere.Count) != d2.manopere.Count) return false;
+            for(int i=0; i < lm; i++)
+                if(d1.manopere[i] != d2.manopere[i]) return false;
+            for(int i=0;i<lp;++i)
+                if(d1.piese[i] != d2.piese[i]) return false;
+            return true;
+        }
+        public static bool operator !=(DevizData d1, DevizData d2) => !(d1 == d2);
+
         #region Classes
         public class ClientData
         {

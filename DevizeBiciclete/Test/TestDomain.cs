@@ -113,6 +113,8 @@ namespace DevizeBiciclete.Test
             {
                 try
                 {
+                    //devizData.Piese.Clear();
+                    //devizData.Manopere.Clear();
                     devizData.ToPDF(pdfpath);
                     Process process = new Process();
                     process.StartInfo.FileName = "explorer.exe";

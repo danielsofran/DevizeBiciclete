@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,6 +38,7 @@
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -78,12 +80,13 @@
             this.label4.Size = new System.Drawing.Size(109, 31);
             this.label4.TabIndex = 7;
             this.label4.Text = "Discount:";
+            this.toolTip1.SetToolTip(this.label4, "procente");
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 5);
+            this.label1.Location = new System.Drawing.Point(6, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 31);
@@ -100,6 +103,7 @@
             this.label3.Size = new System.Drawing.Size(88, 31);
             this.label3.TabIndex = 5;
             this.label3.Text = "Durata:";
+            this.toolTip1.SetToolTip(this.label3, "Ore");
             // 
             // label2
             // 
@@ -111,6 +115,7 @@
             this.label2.Size = new System.Drawing.Size(60, 31);
             this.label2.TabIndex = 6;
             this.label2.Text = "Pret:";
+            this.toolTip1.SetToolTip(this.label2, "Lei");
             // 
             // textBoxDen
             // 
@@ -168,6 +173,10 @@
             this.numericUpDown3.TabIndex = 19;
             this.numericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // toolTip1
+            // 
+            this.toolTip1.IsBalloon = true;
+            // 
             // ManoperaControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 31F);
@@ -197,5 +206,6 @@
         private NumericUpDown numericUpDown2;
         private NumericUpDown numericUpDown1;
         private NumericUpDown numericUpDown3;
+        private ToolTip toolTip1;
     }
 }

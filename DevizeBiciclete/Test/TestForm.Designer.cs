@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestForm));
             this.button1 = new System.Windows.Forms.Button();
             this.piesaListControl1 = new DevizeBiciclete.UI.Controls.PiesaListControl();
-            this.manoperaListControl1 = new DevizeBiciclete.UI.Controls.ManoperaListControl();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -52,27 +52,28 @@
             this.piesaListControl1.Size = new System.Drawing.Size(447, 320);
             this.piesaListControl1.TabIndex = 1;
             // 
-            // manoperaListControl1
+            // label1
             // 
-            this.manoperaListControl1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.manoperaListControl1.Location = new System.Drawing.Point(718, 3);
-            this.manoperaListControl1.Margin = new System.Windows.Forms.Padding(5);
-            this.manoperaListControl1.Name = "manoperaListControl1";
-            this.manoperaListControl1.Size = new System.Drawing.Size(405, 320);
-            this.manoperaListControl1.TabIndex = 2;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(89, 368);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 38);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "label1";
             // 
             // TestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1243, 592);
-            this.Controls.Add(this.manoperaListControl1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.piesaListControl1);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "TestForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -80,6 +81,6 @@
 
         private Button button1;
         private UI.Controls.PiesaListControl piesaListControl1;
-        private UI.Controls.ManoperaListControl manoperaListControl1;
+        private Label label1;
     }
 }

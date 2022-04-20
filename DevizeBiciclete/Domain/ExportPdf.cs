@@ -261,6 +261,9 @@ namespace DevizeBiciclete.Domain
             for (int i = 0; i < devizData.Piese.Count; i++)
                 addRowCellsPiese(table, devizData.Piese[i], i + 1);
 
+            if (devizData.Piese.Count == 0)
+                addRowCellsPiese(table, new DevizData.PiesaData(), 0);
+
             page.Paragraphs.Add(table);
             #endregion
 
@@ -292,6 +295,8 @@ namespace DevizeBiciclete.Domain
 
             for (int i = 0; i < devizData.Manopere.Count; i++)
                 addRowCellsManopera(table, devizData.Manopere[i], i + 1);
+            if (devizData.Manopere.Count == 0)
+                addRowCellsManopera(table, new DevizData.ManoperaData(), 0);
 
             page.Paragraphs.Add(table);
 
@@ -449,6 +454,22 @@ namespace DevizeBiciclete.Domain
             TextFragment fragment = new TextFragment();
             Row row = table.Rows.Add();
             Cell cellindex = row.Cells.Add(), cellcod = row.Cells.Add(), cellnume = row.Cells.Add(), cellnr = row.Cells.Add(), cellpret = row.Cells.Add(), celltotal = row.Cells.Add();
+            if (index == 0)
+            {
+                initTableContent(out fragment, "-");
+                cellindex.Paragraphs.Add(fragment);
+                initTableContent(out fragment, "-");
+                cellcod.Paragraphs.Add(fragment);
+                initTableContent(out fragment, "-");
+                cellnume.Paragraphs.Add(fragment);
+                initTableContent(out fragment, "-");
+                cellnr.Paragraphs.Add(fragment);
+                initTableContent(out fragment, "-");
+                cellpret.Paragraphs.Add(fragment);
+                initTableContent(out fragment, "-");
+                celltotal.Paragraphs.Add(fragment);
+                return;
+            }
             initTableContent(out fragment, index.ToString());
             cellindex.Paragraphs.Add(fragment);
             initTableContent(out fragment, piesa.Cod);
@@ -468,6 +489,22 @@ namespace DevizeBiciclete.Domain
             TextFragment fragment = new TextFragment();
             Row row = table.Rows.Add();
             Cell cellindex = row.Cells.Add(), cellnume = row.Cells.Add(), celldur = row.Cells.Add(), cellpret = row.Cells.Add(), celldisc = row.Cells.Add(), celltotal = row.Cells.Add();
+            if(index == 0)
+            {
+                initTableContent(out fragment, "-");
+                cellindex.Paragraphs.Add(fragment);
+                initTableContent(out fragment, "-");
+                celldur.Paragraphs.Add(fragment);
+                initTableContent(out fragment, "-");
+                cellnume.Paragraphs.Add(fragment);
+                initTableContent(out fragment, "-");
+                celldisc.Paragraphs.Add(fragment);
+                initTableContent(out fragment, "-");
+                cellpret.Paragraphs.Add(fragment);
+                initTableContent(out fragment, "-");
+                celltotal.Paragraphs.Add(fragment);
+                return;
+            }
             initTableContent(out fragment, index.ToString());
             cellindex.Paragraphs.Add(fragment);
             initTableContent(out fragment, manopera.Nume);
@@ -477,6 +514,7 @@ namespace DevizeBiciclete.Domain
             initTableContent(out fragment, string.Format("{0:0.00}", manopera.Pret));
             cellpret.Paragraphs.Add(fragment);
             initTableContent(out fragment, string.Format("{0:0.00}%", manopera.Discount));
+            if (manopera.Discount == 0) fragment.Text = "-";
             celldisc.Paragraphs.Add(fragment);
             initTableContent(out fragment, string.Format("{0:0.00}", manopera.PretTotal));
             celltotal.Paragraphs.Add(fragment);

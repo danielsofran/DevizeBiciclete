@@ -36,15 +36,15 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.textBoxModel = new System.Windows.Forms.TextBox();
+            this.numericUpDownPret = new System.Windows.Forms.NumericUpDown();
             this.textBoxNume = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxOut = new System.Windows.Forms.TextBox();
+            this.textBoxIn = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPret)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -127,8 +127,8 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel2.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label6, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBox1, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.numericUpDown1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxModel, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.numericUpDownPret, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 147);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -162,32 +162,32 @@
             this.label6.Text = "Model: ";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // textBoxModel
             // 
-            this.textBox1.Location = new System.Drawing.Point(530, 3);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 3, 25, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(270, 38);
-            this.textBox1.TabIndex = 13;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxModel.Location = new System.Drawing.Point(530, 3);
+            this.textBoxModel.Margin = new System.Windows.Forms.Padding(3, 3, 25, 3);
+            this.textBoxModel.Name = "textBoxModel";
+            this.textBoxModel.ReadOnly = true;
+            this.textBoxModel.Size = new System.Drawing.Size(270, 38);
+            this.textBoxModel.TabIndex = 13;
+            this.textBoxModel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // numericUpDown1
+            // numericUpDownPret
             // 
-            this.numericUpDown1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numericUpDown1.DecimalPlaces = 2;
-            this.numericUpDown1.Location = new System.Drawing.Point(198, 7);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numericUpDownPret.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.numericUpDownPret.DecimalPlaces = 2;
+            this.numericUpDownPret.Location = new System.Drawing.Point(198, 7);
+            this.numericUpDownPret.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.ReadOnly = true;
-            this.numericUpDown1.Size = new System.Drawing.Size(131, 38);
-            this.numericUpDown1.TabIndex = 14;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.numericUpDownPret.Name = "numericUpDownPret";
+            this.numericUpDownPret.ReadOnly = true;
+            this.numericUpDownPret.Size = new System.Drawing.Size(131, 38);
+            this.numericUpDownPret.TabIndex = 14;
+            this.numericUpDownPret.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDownPret.Value = new decimal(new int[] {
             10000,
             0,
             0,
@@ -208,8 +208,8 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.textBox3, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.textBox2, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.textBoxOut, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.textBoxIn, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(157, 101);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 3, 25, 3);
@@ -219,27 +219,27 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(643, 43);
             this.tableLayoutPanel3.TabIndex = 13;
             // 
-            // textBox3
+            // textBoxOut
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox3.Location = new System.Drawing.Point(388, 3);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(188, 38);
-            this.textBox3.TabIndex = 15;
-            this.textBox3.Text = "13.13.2019";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxOut.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxOut.Location = new System.Drawing.Point(388, 3);
+            this.textBoxOut.Name = "textBoxOut";
+            this.textBoxOut.ReadOnly = true;
+            this.textBoxOut.Size = new System.Drawing.Size(188, 38);
+            this.textBoxOut.TabIndex = 15;
+            this.textBoxOut.Text = "13.13.2019";
+            this.textBoxOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox2
+            // textBoxIn
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Location = new System.Drawing.Point(66, 3);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(188, 38);
-            this.textBox2.TabIndex = 14;
-            this.textBox2.Text = "12.33.2444";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxIn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxIn.Location = new System.Drawing.Point(66, 3);
+            this.textBoxIn.Name = "textBoxIn";
+            this.textBoxIn.ReadOnly = true;
+            this.textBoxIn.Size = new System.Drawing.Size(188, 38);
+            this.textBoxIn.TabIndex = 14;
+            this.textBoxIn.Text = "12.33.2444";
+            this.textBoxIn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // DevizControl
             // 
@@ -254,7 +254,7 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPret)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
@@ -272,10 +272,10 @@
         private Label label6;
         private TextBox textBoxTelefon;
         private TextBox textBoxNume;
-        private TextBox textBox1;
+        private TextBox textBoxModel;
         private TableLayoutPanel tableLayoutPanel3;
-        private NumericUpDown numericUpDown1;
-        private TextBox textBox3;
-        private TextBox textBox2;
+        private NumericUpDown numericUpDownPret;
+        private TextBox textBoxOut;
+        private TextBox textBoxIn;
     }
 }

@@ -34,7 +34,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 456);
+            this.ClientSize = new System.Drawing.Size(895, 392);
             this.Name = "DevizForm";
             this.Text = "DevizForm";
             this.ResumeLayout(false);

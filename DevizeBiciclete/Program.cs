@@ -1,5 +1,6 @@
 using DevizeBiciclete.Test;
 using DevizeBiciclete.Domain;
+using DevizeBiciclete.UI;
 
 namespace DevizeBiciclete
 {
@@ -16,7 +17,7 @@ namespace DevizeBiciclete
             ApplicationConfiguration.Initialize();
             DevizSetari.Logo.Save(Application.StartupPath+"logo.png");
             //TestDomain.Run();
-            Application.Run(new TestForm());
+            Application.Run(new DevizForm());
         }
     }
 }

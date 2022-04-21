@@ -20,7 +20,7 @@ namespace DevizeBiciclete.UI.Controls
         }
 
         public bool Valid { get { return textBoxNume.Text.Length != 0 && textBoxTel.Text.Length != 0; } }
-        public DevizData.ClientData Data
+        public DevizData.ClientData Client
         {
             get
             {

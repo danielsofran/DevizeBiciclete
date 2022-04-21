@@ -29,9 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestForm));
+            DevizeBiciclete.Domain.DevizData devizData1 = new DevizeBiciclete.Domain.DevizData();
+            DevizeBiciclete.Domain.DevizData.BicicletaData bicicletaData1 = new DevizeBiciclete.Domain.DevizData.BicicletaData();
+            DevizeBiciclete.Domain.DevizData.ClientData clientData1 = new DevizeBiciclete.Domain.DevizData.ClientData();
+            DevizeBiciclete.Domain.DevizData.ConstatareData constatareData1 = new DevizeBiciclete.Domain.DevizData.ConstatareData();
             this.button1 = new System.Windows.Forms.Button();
             this.piesaListControl1 = new DevizeBiciclete.UI.Controls.PiesaListControl();
             this.label1 = new System.Windows.Forms.Label();
+            this.devizControl1 = new DevizeBiciclete.UI.DevizControl();
             this.SuspendLayout();
             // 
             // button1
@@ -55,17 +60,50 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(89, 368);
+            this.label1.Location = new System.Drawing.Point(503, 141);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 38);
             this.label1.TabIndex = 3;
             this.label1.Text = "label1";
             // 
+            // devizControl1
+            // 
+            bicicletaData1.Culoare = "";
+            bicicletaData1.Marca = "";
+            bicicletaData1.Model = "";
+            bicicletaData1.Serie = "";
+            devizData1.Bicicleta = bicicletaData1;
+            clientData1.Adresa = "";
+            clientData1.Denumire = "";
+            clientData1.Nume = "";
+            clientData1.PersoanaFizica = true;
+            clientData1.PersoanaJuridica = false;
+            clientData1.Registru = "";
+            clientData1.RO = "";
+            clientData1.Telefon = "";
+            clientData1.TelefonFrima = "";
+            devizData1.Client = clientData1;
+            constatareData1.DataIn = new System.DateTime(((long)(0)));
+            constatareData1.DataOut = new System.DateTime(((long)(0)));
+            constatareData1.Motiv = "";
+            devizData1.Constatare = constatareData1;
+            devizData1.Numar = ((long)(0));
+            devizData1.TVA = 0.19F;
+            this.devizControl1.Deviz = devizData1;
+            this.devizControl1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.devizControl1.Location = new System.Drawing.Point(709, 28);
+            this.devizControl1.Margin = new System.Windows.Forms.Padding(5);
+            this.devizControl1.Name = "devizControl1";
+            this.devizControl1.Size = new System.Drawing.Size(520, 211);
+            this.devizControl1.TabIndex = 4;
+            // 
             // TestForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1243, 592);
+            this.Controls.Add(this.devizControl1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.piesaListControl1);
             this.Controls.Add(this.button1);
@@ -80,7 +118,8 @@
         #endregion
 
         private Button button1;
-        private UI.Controls.PiesaListControl piesaListControl1;
         private Label label1;
+        public UI.DevizControl devizControl1;
+        public UI.Controls.PiesaListControl piesaListControl1;
     }
 }

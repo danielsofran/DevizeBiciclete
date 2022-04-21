@@ -30,9 +30,12 @@ namespace DevizeBiciclete.UI.Controls
             set
             {
                 float height = tableLayoutPanel4.RowStyles[0].Height;
+                int initheight = tableLayoutPanel4.Height;
                 tableLayoutPanel4.Controls.Clear();
+                tableLayoutPanel4.RowStyles.Clear();
                 foreach (Manopera manopera in value)
                     addManopera(manopera, height);
+                this.Height -= initheight;
             }
         }
 

@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deschideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stergeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBoxTelefon = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,6 +49,7 @@
             this.textBoxOut = new System.Windows.Forms.TextBox();
             this.textBoxIn = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPret)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
@@ -53,6 +60,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 154F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ContextMenuStrip = this.contextMenuStrip1;
             this.tableLayoutPanel1.Controls.Add(this.textBoxTelefon, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
@@ -70,6 +78,44 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(825, 199);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deschideToolStripMenuItem,
+            this.modificareToolStripMenuItem,
+            this.stergeToolStripMenuItem,
+            this.exportPDFToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(152, 100);
+            // 
+            // deschideToolStripMenuItem
+            // 
+            this.deschideToolStripMenuItem.Name = "deschideToolStripMenuItem";
+            this.deschideToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
+            this.deschideToolStripMenuItem.Text = "Vizualizare";
+            this.deschideToolStripMenuItem.Click += new System.EventHandler(this.deschideToolStripMenuItem_Click);
+            // 
+            // modificareToolStripMenuItem
+            // 
+            this.modificareToolStripMenuItem.Name = "modificareToolStripMenuItem";
+            this.modificareToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
+            this.modificareToolStripMenuItem.Text = "Modificare";
+            this.modificareToolStripMenuItem.Click += new System.EventHandler(this.modificareToolStripMenuItem_Click);
+            // 
+            // stergeToolStripMenuItem
+            // 
+            this.stergeToolStripMenuItem.Name = "stergeToolStripMenuItem";
+            this.stergeToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
+            this.stergeToolStripMenuItem.Text = "Sterge";
+            this.stergeToolStripMenuItem.Click += new System.EventHandler(this.stergeToolStripMenuItem_Click);
+            // 
+            // exportPDFToolStripMenuItem
+            // 
+            this.exportPDFToolStripMenuItem.Name = "exportPDFToolStripMenuItem";
+            this.exportPDFToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
+            this.exportPDFToolStripMenuItem.Text = "Export PDF";
             // 
             // textBoxTelefon
             // 
@@ -176,9 +222,10 @@
             // 
             this.numericUpDownPret.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.numericUpDownPret.DecimalPlaces = 2;
+            this.numericUpDownPret.Enabled = false;
             this.numericUpDownPret.Location = new System.Drawing.Point(198, 7);
             this.numericUpDownPret.Maximum = new decimal(new int[] {
-            10000,
+            100000,
             0,
             0,
             0});
@@ -252,6 +299,7 @@
             this.Size = new System.Drawing.Size(825, 199);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPret)).EndInit();
@@ -277,5 +325,10 @@
         private NumericUpDown numericUpDownPret;
         private TextBox textBoxOut;
         private TextBox textBoxIn;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem deschideToolStripMenuItem;
+        private ToolStripMenuItem modificareToolStripMenuItem;
+        private ToolStripMenuItem stergeToolStripMenuItem;
+        private ToolStripMenuItem exportPDFToolStripMenuItem;
     }
 }

@@ -109,7 +109,7 @@ namespace DevizeBiciclete.Test
             testRepo();
             string pdfpath = Application.StartupPath + "testpdf.pdf";
 
-            if (true)
+            if (false)
             {
                 try
                 {
@@ -128,6 +128,12 @@ namespace DevizeBiciclete.Test
                 {
                     //MessageBox.Show(ex.Message);  
                 }
+            }
+            else {
+                TestForm testForm = new TestForm();
+                testForm.devizControl1.Deviz = devizData;
+                testForm.piesaListControl1.Piese = devizData.Piese;
+                testForm.ShowDialog();
             }
         }
     }

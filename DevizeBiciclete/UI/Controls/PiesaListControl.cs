@@ -30,9 +30,12 @@ namespace DevizeBiciclete.UI.Controls
             set
             {
                 float height = tableLayoutPanel3.RowStyles[0].Height;
+                int initheight = tableLayoutPanel3.Height;
                 tableLayoutPanel3.Controls.Clear();
+                tableLayoutPanel3.RowStyles.Clear();
                 foreach (Piesa piesa in value)
                     addPiesa(piesa, height);
+                this.Height -= initheight;
             }
         }
 

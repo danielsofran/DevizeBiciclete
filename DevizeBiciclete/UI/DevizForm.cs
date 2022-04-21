@@ -22,11 +22,42 @@ namespace DevizeBiciclete.UI
 {
     public partial class DevizForm : Form
     {
-        Deviz deviz;
+
         public DevizForm()
         {
             InitializeComponent();
-            numericUpDownTVA.Value = (decimal)DevizSetari.TVA * 100;
+            numericUpDownTVA.Value = (decimal)(DevizSetari.TVA * 100);
+        }
+
+        public bool ReadOnly
+        {
+            get => !buttonSalveaza.Enabled;
+            set { buttonSalveaza.Enabled = !value; buttonSalveaza.Visible = false; }
+        }
+
+        public Deviz Deviz { 
+            get
+            {
+                Deviz deviz = new Deviz();
+                deviz.TVA = (float)numericUpDownTVA.Value / 100;
+                deviz.Numar = (long)numericUpDownNumar.Value;
+                deviz.Client = clientControl.Client;
+                deviz.Bicicleta = bicicletaControl.Bicicleta;
+                deviz.Constatare = constatareControl.Constatare;
+                deviz.Piese = piesaListControl.Piese;
+                deviz.Manopere = manoperaListControl.Manopere;
+                return deviz;
+            }
+            set
+            {
+                numericUpDownTVA.Value = (decimal)value.TVA * 100;
+                numericUpDownNumar.Value = value.Numar;
+                clientControl.Client = value.Client;
+                bicicletaControl.Bicicleta = value.Bicicleta;
+                constatareControl.Constatare = value.Constatare;
+                piesaListControl.Piese = value.Piese;
+                manoperaListControl.Manopere = value.Manopere;
+            }
         }
 
         private void manoperaListControl_Resize(object sender, EventArgs e)
@@ -48,6 +79,18 @@ namespace DevizeBiciclete.UI
                 panel.Height -= (int)dif - (control.Margin.Bottom + control.Margin.Top);
             }
             this.Refresh();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.DialogResult=DialogResult.Cancel;
+            this.Close();
         }
     }
 }

@@ -104,7 +104,6 @@ namespace DevizeBiciclete.Test
 
         public static void Run()
         {
-            
             testDeviz();
             testRepo();
             string pdfpath = Application.StartupPath + "testpdf.pdf";

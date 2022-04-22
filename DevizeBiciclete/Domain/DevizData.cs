@@ -8,6 +8,7 @@ namespace DevizeBiciclete.Domain
 {
     public class DevizData
     {
+        uint enters = 0;
         long numar=0;
         ClientData client = new ClientData();
         BicicletaData bicicleta = new BicicletaData();
@@ -18,6 +19,7 @@ namespace DevizeBiciclete.Domain
 
         public static DevizData? Empty = null;
 
+        public uint Enters { get { return enters; } set { enters = value; } }
         public long Numar { get { return numar; } set { numar = value; } }
         public ClientData Client { get { return client; } set { client = value; } }
         public BicicletaData Bicicleta { get { return bicicleta; } set { bicicleta = value; } }
@@ -35,6 +37,7 @@ namespace DevizeBiciclete.Domain
         public override string ToString()
         {
             string sep = "$dev$", mansep="$manoprepo$", piesesep="$pieserepo$";
+            string ents = enters.ToString();
             string tvas = tva.ToString();
             string nr = numar.ToString();
             string client = Client.ToString();
@@ -45,7 +48,8 @@ namespace DevizeBiciclete.Domain
                 manopere+=manopera.ToString()+mansep;
             foreach(var piesa in Piese)
                 piese+=piesa.ToString()+piesesep;
-            return nr+sep+client+sep+bicicleta+sep+constatare+sep+manopere+sep+piese+sep+tvas;
+            return nr+sep+client+sep+bicicleta+sep+constatare+sep+
+                manopere+sep+piese+sep+tvas+sep+ents;
         }
 
         public static DevizData FromString(string txt)
@@ -67,6 +71,7 @@ namespace DevizeBiciclete.Domain
                 if(piese is not null && piese != "")
                     deviz.piese.Add(PiesaData.FromString(piese));
             deviz.tva = float.Parse(tokens[6]);
+            deviz.enters = uint.Parse(tokens[7]);
             return deviz;
         }
 

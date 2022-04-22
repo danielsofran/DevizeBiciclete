@@ -9,15 +9,11 @@ namespace DevizeBiciclete.Domain
     public static class DevizSetari
     {
         static string titlu = "DEVIZ";
-        //ServiceData service;
-        //CertificatData certificat;
-        //SemnaturaServiceData semnatura;
+        static string pdfPath = "";
         static Bitmap logo = Resource.demologo;
 
         public static string Titlu { get => titlu; set => titlu = value; }
-        //public ServiceData Service { get => service; set => service = value; }
-        //public CertificatData Certificat { get => certificat; set => certificat = value; }
-        //public SemnaturaServiceData Semnatura { get => semnatura; set => semnatura = value; }
+        public static string PDFPath { get => pdfPath; set => pdfPath = value; }
         public static Bitmap Logo { get => logo; set => logo = value; }
         public static float TVA = .19f; ////////////////////////////////////////// get from file
 

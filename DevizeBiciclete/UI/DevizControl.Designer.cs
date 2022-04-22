@@ -33,6 +33,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deschideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.duplicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stergeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBoxTelefon = new System.Windows.Forms.TextBox();
@@ -85,37 +86,45 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deschideToolStripMenuItem,
             this.modificareToolStripMenuItem,
+            this.duplicaToolStripMenuItem,
             this.stergeToolStripMenuItem,
             this.exportPDFToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 128);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(152, 124);
             // 
             // deschideToolStripMenuItem
             // 
             this.deschideToolStripMenuItem.Name = "deschideToolStripMenuItem";
-            this.deschideToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.deschideToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
             this.deschideToolStripMenuItem.Text = "Vizualizare";
             this.deschideToolStripMenuItem.Click += new System.EventHandler(this.deschideToolStripMenuItem_Click);
             // 
             // modificareToolStripMenuItem
             // 
             this.modificareToolStripMenuItem.Name = "modificareToolStripMenuItem";
-            this.modificareToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.modificareToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
             this.modificareToolStripMenuItem.Text = "Modificare";
             this.modificareToolStripMenuItem.Click += new System.EventHandler(this.modificareToolStripMenuItem_Click);
+            // 
+            // duplicaToolStripMenuItem
+            // 
+            this.duplicaToolStripMenuItem.Name = "duplicaToolStripMenuItem";
+            this.duplicaToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
+            this.duplicaToolStripMenuItem.Text = "Duplica";
             // 
             // stergeToolStripMenuItem
             // 
             this.stergeToolStripMenuItem.Name = "stergeToolStripMenuItem";
-            this.stergeToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.stergeToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
             this.stergeToolStripMenuItem.Text = "Sterge";
             this.stergeToolStripMenuItem.Click += new System.EventHandler(this.stergeToolStripMenuItem_Click);
             // 
             // exportPDFToolStripMenuItem
             // 
             this.exportPDFToolStripMenuItem.Name = "exportPDFToolStripMenuItem";
-            this.exportPDFToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.exportPDFToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
             this.exportPDFToolStripMenuItem.Text = "Export PDF";
+            this.exportPDFToolStripMenuItem.Click += new System.EventHandler(this.exportPDFToolStripMenuItem_Click);
             // 
             // textBoxTelefon
             // 
@@ -330,5 +339,6 @@
         private ToolStripMenuItem modificareToolStripMenuItem;
         private ToolStripMenuItem stergeToolStripMenuItem;
         private ToolStripMenuItem exportPDFToolStripMenuItem;
+        private ToolStripMenuItem duplicaToolStripMenuItem;
     }
 }

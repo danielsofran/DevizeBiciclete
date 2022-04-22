@@ -87,5 +87,12 @@ namespace DevizeBiciclete.UI
                 // add disposed method in upper class
             }
         }
+
+        private void exportPDFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExportPDForm form = new ExportPDForm();
+            form.Deviz = this.Deviz;
+            form.ShowDialog();
+        }
     }
 }

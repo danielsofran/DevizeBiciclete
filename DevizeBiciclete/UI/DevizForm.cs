@@ -113,5 +113,15 @@ namespace DevizeBiciclete.UI
             this.DialogResult=DialogResult.Cancel;
             this.Close();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if(this.Valid)
+            {
+                ExportPDForm form = new ExportPDForm();
+                form.Deviz = this.Deviz;
+                form.ShowDialog();
+            }
+        }
     }
 }

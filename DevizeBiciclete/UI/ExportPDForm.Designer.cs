@@ -1,6 +1,6 @@
 ﻿namespace DevizeBiciclete.UI
 {
-    partial class ExportPDFForm
+    partial class ExportPDForm
     {
         /// <summary>
         /// Required designer variable.
@@ -39,12 +39,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -98,7 +99,6 @@
             this.textBox2.Location = new System.Drawing.Point(200, 63);
             this.textBox2.Margin = new System.Windows.Forms.Padding(10, 10, 150, 3);
             this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(411, 38);
             this.textBox2.TabIndex = 5;
             this.textBox2.Resize += new System.EventHandler(this.textBox2_Resize);
@@ -159,6 +159,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "...";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // numericUpDown1
             // 
@@ -193,20 +194,16 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(755, 50);
             this.tableLayoutPanel3.TabIndex = 8;
             // 
-            // toolTip1
+            // button4
             // 
-            this.toolTip1.IsBalloon = true;
-            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Location = new System.Drawing.Point(300, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(152, 44);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Vizualizeaza";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button4.Location = new System.Drawing.Point(552, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(152, 44);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "Salveaza";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -217,16 +214,18 @@
             this.button3.TabIndex = 1;
             this.button3.Text = "Anuleaza";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // button2
             // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button4.Location = new System.Drawing.Point(552, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(152, 44);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "Salveaza";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.Location = new System.Drawing.Point(300, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(152, 44);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Vizualizeaza";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label4
             // 
@@ -256,7 +255,17 @@
             this.toolTip1.SetToolTip(this.checkBox1, "Daca este bifat, deschide fisierul pdf automat dupa salvare");
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // ExportPDFForm
+            // toolTip1
+            // 
+            this.toolTip1.IsBalloon = true;
+            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
+            // folderBrowserDialog
+            // 
+            this.folderBrowserDialog.RootFolder = System.Environment.SpecialFolder.MyComputer;
+            this.folderBrowserDialog.UseDescriptionForTitle = true;
+            // 
+            // ExportPDForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -264,7 +273,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "ExportPDFForm";
+            this.Name = "ExportPDForm";
             this.Text = "Export PDF";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -294,5 +303,6 @@
         private Button button2;
         private Label label4;
         private CheckBox checkBox1;
+        private FolderBrowserDialog folderBrowserDialog;
     }
 }

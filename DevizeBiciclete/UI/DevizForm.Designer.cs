@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevizeBiciclete.Domain.DevizData.ClientData clientData2 = new DevizeBiciclete.Domain.DevizData.ClientData();
-            DevizeBiciclete.Domain.DevizData.BicicletaData bicicletaData2 = new DevizeBiciclete.Domain.DevizData.BicicletaData();
-            DevizeBiciclete.Domain.DevizData.ConstatareData constatareData2 = new DevizeBiciclete.Domain.DevizData.ConstatareData();
+            DevizeBiciclete.Domain.DevizData.ClientData clientData1 = new DevizeBiciclete.Domain.DevizData.ClientData();
+            DevizeBiciclete.Domain.DevizData.BicicletaData bicicletaData1 = new DevizeBiciclete.Domain.DevizData.BicicletaData();
+            DevizeBiciclete.Domain.DevizData.ConstatareData constatareData1 = new DevizeBiciclete.Domain.DevizData.ConstatareData();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DevizForm));
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,8 +46,8 @@
             this.manoperaListControl = new DevizeBiciclete.UI.Controls.ManoperaListControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
-            this.buttonAnuleaza = new System.Windows.Forms.Button();
             this.buttonSalveaza = new System.Windows.Forms.Button();
+            this.buttonAnuleaza = new System.Windows.Forms.Button();
             this.tableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTVA)).BeginInit();
@@ -164,16 +164,16 @@
             // 
             // clientControl
             // 
-            clientData2.Adresa = "";
-            clientData2.Denumire = "";
-            clientData2.Nume = "";
-            clientData2.PersoanaFizica = true;
-            clientData2.PersoanaJuridica = false;
-            clientData2.Registru = "";
-            clientData2.RO = "";
-            clientData2.Telefon = "";
-            clientData2.TelefonFrima = "";
-            this.clientControl.Client = clientData2;
+            clientData1.Adresa = "";
+            clientData1.Denumire = "";
+            clientData1.Nume = "";
+            clientData1.PersoanaFizica = true;
+            clientData1.PersoanaJuridica = false;
+            clientData1.Registru = "";
+            clientData1.RO = "";
+            clientData1.Telefon = "";
+            clientData1.TelefonFrima = "";
+            this.clientControl.Client = clientData1;
             this.clientControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.clientControl.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.clientControl.Location = new System.Drawing.Point(5, 202);
@@ -184,11 +184,11 @@
             // 
             // bicicletaControl
             // 
-            bicicletaData2.Culoare = "";
-            bicicletaData2.Marca = "";
-            bicicletaData2.Model = "";
-            bicicletaData2.Serie = "";
-            this.bicicletaControl.Bicicleta = bicicletaData2;
+            bicicletaData1.Culoare = "";
+            bicicletaData1.Marca = "";
+            bicicletaData1.Model = "";
+            bicicletaData1.Serie = "";
+            this.bicicletaControl.Bicicleta = bicicletaData1;
             this.bicicletaControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bicicletaControl.Location = new System.Drawing.Point(5, 648);
             this.bicicletaControl.Margin = new System.Windows.Forms.Padding(5);
@@ -198,10 +198,10 @@
             // 
             // constatareControl
             // 
-            constatareData2.DataIn = new System.DateTime(2022, 4, 21, 8, 40, 9, 539);
-            constatareData2.DataOut = new System.DateTime(2022, 4, 21, 8, 40, 9, 541);
-            constatareData2.Motiv = "";
-            this.constatareControl.Constatare = constatareData2;
+            constatareData1.DataIn = new System.DateTime(2022, 4, 21, 8, 40, 9, 539);
+            constatareData1.DataOut = new System.DateTime(2022, 4, 21, 8, 40, 9, 541);
+            constatareData1.Motiv = "";
+            this.constatareControl.Constatare = constatareData1;
             this.constatareControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.constatareControl.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.constatareControl.Location = new System.Drawing.Point(5, 917);
@@ -259,18 +259,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Export PDF";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // buttonAnuleaza
-            // 
-            this.buttonAnuleaza.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonAnuleaza.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonAnuleaza.Location = new System.Drawing.Point(638, 10);
-            this.buttonAnuleaza.Name = "buttonAnuleaza";
-            this.buttonAnuleaza.Size = new System.Drawing.Size(250, 60);
-            this.buttonAnuleaza.TabIndex = 2;
-            this.buttonAnuleaza.Text = "Anuleaza";
-            this.buttonAnuleaza.UseVisualStyleBackColor = true;
-            this.buttonAnuleaza.Click += new System.EventHandler(this.button2_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // buttonSalveaza
             // 
@@ -283,6 +272,18 @@
             this.buttonSalveaza.Text = "Salveaza";
             this.buttonSalveaza.UseVisualStyleBackColor = true;
             this.buttonSalveaza.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonAnuleaza
+            // 
+            this.buttonAnuleaza.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonAnuleaza.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonAnuleaza.Location = new System.Drawing.Point(638, 10);
+            this.buttonAnuleaza.Name = "buttonAnuleaza";
+            this.buttonAnuleaza.Size = new System.Drawing.Size(250, 60);
+            this.buttonAnuleaza.TabIndex = 2;
+            this.buttonAnuleaza.Text = "Anuleaza";
+            this.buttonAnuleaza.UseVisualStyleBackColor = true;
+            this.buttonAnuleaza.Click += new System.EventHandler(this.button2_Click);
             // 
             // DevizForm
             // 

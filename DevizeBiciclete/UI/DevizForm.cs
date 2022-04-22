@@ -35,6 +35,24 @@ namespace DevizeBiciclete.UI
             set { buttonSalveaza.Enabled = !value; buttonSalveaza.Visible = false; }
         }
 
+        public bool Valid
+        {
+            get
+            {
+                if (!clientControl.Valid)
+                {
+                    MessageBox.Show("Client invalid!");
+                    return false;
+                }
+                if (!constatareControl.Valid)
+                {
+                    MessageBox.Show("Constatare invalida!");
+                    return false;
+                }
+                return true;
+            }
+        }
+
         public Deviz Deviz { 
             get
             {
@@ -83,8 +101,11 @@ namespace DevizeBiciclete.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            if (Valid)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -88,33 +88,33 @@
             this.stergeToolStripMenuItem,
             this.exportPDFToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(152, 100);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 128);
             // 
             // deschideToolStripMenuItem
             // 
             this.deschideToolStripMenuItem.Name = "deschideToolStripMenuItem";
-            this.deschideToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
+            this.deschideToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.deschideToolStripMenuItem.Text = "Vizualizare";
             this.deschideToolStripMenuItem.Click += new System.EventHandler(this.deschideToolStripMenuItem_Click);
             // 
             // modificareToolStripMenuItem
             // 
             this.modificareToolStripMenuItem.Name = "modificareToolStripMenuItem";
-            this.modificareToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
+            this.modificareToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.modificareToolStripMenuItem.Text = "Modificare";
             this.modificareToolStripMenuItem.Click += new System.EventHandler(this.modificareToolStripMenuItem_Click);
             // 
             // stergeToolStripMenuItem
             // 
             this.stergeToolStripMenuItem.Name = "stergeToolStripMenuItem";
-            this.stergeToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
+            this.stergeToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.stergeToolStripMenuItem.Text = "Sterge";
             this.stergeToolStripMenuItem.Click += new System.EventHandler(this.stergeToolStripMenuItem_Click);
             // 
             // exportPDFToolStripMenuItem
             // 
             this.exportPDFToolStripMenuItem.Name = "exportPDFToolStripMenuItem";
-            this.exportPDFToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
+            this.exportPDFToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.exportPDFToolStripMenuItem.Text = "Export PDF";
             // 
             // textBoxTelefon

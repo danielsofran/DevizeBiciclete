@@ -15,11 +15,13 @@ namespace DevizeBiciclete.UI
     public partial class DevizControl : UserControl
     {
         Deviz deviz;
+        Repo.Repository repo;
         bool opened = false;
         public DevizControl()
         {
             InitializeComponent();
             deviz = new Deviz();
+            repo = new Repo.Repository();
         }
         
         public Deviz Deviz
@@ -36,6 +38,8 @@ namespace DevizeBiciclete.UI
                 textBoxModel.Text = value.Bicicleta.Model;
             }
         }
+
+        public Repo.Repository Repo { get => repo; set => repo = value; }
 
         private void deschideToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -78,7 +82,9 @@ namespace DevizeBiciclete.UI
             if(MessageBox.Show("Sigur doriti sa stergeti acest deviz?", "Alerta", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
             {
                 // calls FUNCTION for repo delete
-                
+                repo.Remove(Deviz);
+                this.Dispose();
+                // add disposed method in upper class
             }
         }
     }

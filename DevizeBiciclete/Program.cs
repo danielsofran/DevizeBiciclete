@@ -16,9 +16,10 @@ namespace DevizeBiciclete
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             DevizSetari.Logo.Save(Application.StartupPath+"logo.png");
-            TestDomain.Run();
+            //TestDomain.Run();
             //Application.Run(new DevizForm());
             //Application.Run(new TestForm());
+            Application.Run(new MainForm());
         }
     }
 }

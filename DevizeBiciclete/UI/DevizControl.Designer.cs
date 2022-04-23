@@ -111,6 +111,7 @@
             this.duplicaToolStripMenuItem.Name = "duplicaToolStripMenuItem";
             this.duplicaToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
             this.duplicaToolStripMenuItem.Text = "Duplica";
+            this.duplicaToolStripMenuItem.Click += new System.EventHandler(this.duplicaToolStripMenuItem_Click);
             // 
             // stergeToolStripMenuItem
             // 
@@ -219,20 +220,22 @@
             // 
             // textBoxModel
             // 
-            this.textBoxModel.Location = new System.Drawing.Point(530, 3);
-            this.textBoxModel.Margin = new System.Windows.Forms.Padding(3, 3, 25, 3);
+            this.textBoxModel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxModel.Location = new System.Drawing.Point(537, 8);
+            this.textBoxModel.Margin = new System.Windows.Forms.Padding(10, 5, 25, 3);
             this.textBoxModel.Name = "textBoxModel";
             this.textBoxModel.ReadOnly = true;
-            this.textBoxModel.Size = new System.Drawing.Size(270, 38);
+            this.textBoxModel.Size = new System.Drawing.Size(263, 38);
             this.textBoxModel.TabIndex = 13;
             this.textBoxModel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numericUpDownPret
             // 
-            this.numericUpDownPret.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.numericUpDownPret.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.numericUpDownPret.DecimalPlaces = 2;
             this.numericUpDownPret.Enabled = false;
-            this.numericUpDownPret.Location = new System.Drawing.Point(198, 7);
+            this.numericUpDownPret.Location = new System.Drawing.Point(168, 8);
+            this.numericUpDownPret.Margin = new System.Windows.Forms.Padding(10, 5, 3, 3);
             this.numericUpDownPret.Maximum = new decimal(new int[] {
             100000,
             0,

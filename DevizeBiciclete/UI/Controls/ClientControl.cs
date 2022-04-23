@@ -17,6 +17,7 @@ namespace DevizeBiciclete.UI.Controls
         {
             InitializeComponent();
             radioButton2_CheckedChanged(null, null);
+            rdbtnfizica.Checked = true;
         }
 
         public bool Valid { get { return textBoxNume.Text.Length != 0 && textBoxTel.Text.Length != 0; } }

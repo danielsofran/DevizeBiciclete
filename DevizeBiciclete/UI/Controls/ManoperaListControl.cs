@@ -48,7 +48,7 @@ namespace DevizeBiciclete.UI.Controls
             control.Manopera = manopera;
             control.ContextMenuStrip = contextMenuStrip1;
             tableLayoutPanel4.Controls.Add(control);
-            this.Height += (int)height + control.Margin.Top + control.Margin.Bottom;
+            this.Height += (int)height;
         }
 
         private void button1_Click(object sender, EventArgs e)

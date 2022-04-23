@@ -89,7 +89,7 @@ namespace DevizeBiciclete.Test
         static void testRepo()
         {
             Repository repo = new Repository();
-            repo.Path = "testrepo.txt";
+            repo.Path = "repository.data";
             repo.Add(devizData);          
             testDeviz();
             devizData.Client.Nume = "Alin Nagi";
@@ -99,7 +99,7 @@ namespace DevizeBiciclete.Test
             repo.Add(devizData);
             repo.ToFile();
             Debug.Assert(Repository.FromFile(repo.Path).ToList[0].Bicicleta == repo.ToList[0].Bicicleta);
-            File.Delete(repo.Path);
+            //File.Delete(repo.Path);
         }
 
         public static void Run()

@@ -279,6 +279,7 @@
             // 
             // textBoxAdr
             // 
+            this.textBoxAdr.AcceptsReturn = true;
             this.textBoxAdr.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxAdr.Location = new System.Drawing.Point(176, 261);
             this.textBoxAdr.Margin = new System.Windows.Forms.Padding(3, 3, 25, 3);

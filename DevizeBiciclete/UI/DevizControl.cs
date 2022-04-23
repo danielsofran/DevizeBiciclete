@@ -94,5 +94,11 @@ namespace DevizeBiciclete.UI
             form.Deviz = this.Deviz;
             form.ShowDialog();
         }
+
+        private void duplicaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Deviz copie = Deviz.Clone();
+            repo.Add(copie);
+        }
     }
 }

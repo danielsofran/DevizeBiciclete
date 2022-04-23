@@ -16,8 +16,19 @@ namespace DevizeBiciclete.Repo
         public MyException(string message, Exception inner): base(message, inner){}
     }
 
+    public class RepositoryEventArgs : EventArgs
+    {
+        public DevizData Deviz = null;
+        public RepositoryEventArgs(DevizData deviz){ Deviz = deviz; }
+    }
+
+    public delegate void RepositoryEventHandler(object sender, RepositoryEventArgs e);
+
     public class Repository
     {
+        public event EventHandler ItemsChanged; 
+        public event RepositoryEventHandler ItemsAdded;
+
         Devize devize = new Devize();
         string path="";
         static int operations_count = 0;
@@ -28,6 +39,8 @@ namespace DevizeBiciclete.Repo
             devize.Add(devizData);
             operations_count++;
             if(operations_count % 10 == 0) ToFile();
+            ItemsAdded?.Invoke(this, new RepositoryEventArgs(devizData));
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
         }
 
         public void Remove(DevizData devizData, bool all = false) // sterg primul elem
@@ -39,8 +52,13 @@ namespace DevizeBiciclete.Repo
                     i--; // practic cu i++ raman pe aceeasi pozitie
                     operations_count++;
                     if (operations_count % 10 == 0) ToFile();
-                    if(!all) return;
+                    if (!all)
+                    {
+                        ItemsChanged?.Invoke(this, EventArgs.Empty);
+                        return;
+                    }
                 }
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
         }
 
         public void Remove(Func<DevizData, bool> fnc, bool all=false)  // sterg toate elem care respecta fct
@@ -52,8 +70,13 @@ namespace DevizeBiciclete.Repo
                     i--; // practic cu i++ raman pe aceeasi pozitie
                     operations_count++;
                     if (operations_count % 10 == 0) ToFile();
-                    if (!all) return;
+                    if (!all)
+                    {
+                        ItemsChanged?.Invoke(this, EventArgs.Empty);
+                        return;
+                    }
                 }
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
         }
 
         public Devize Find(Func<DevizData, bool> fnc)
@@ -71,7 +94,6 @@ namespace DevizeBiciclete.Repo
             } 
             set {
                 path = value;
-                ToFile();
             } 
         }
         public Devize ToList { get => devize; }
@@ -102,6 +124,7 @@ namespace DevizeBiciclete.Repo
                         devize.Add(DevizData.FromString(line));
                     }
             }
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
         }
 
         public static Repository FromFile(string path)

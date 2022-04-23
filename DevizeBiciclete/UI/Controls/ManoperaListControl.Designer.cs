@@ -31,19 +31,19 @@
             this.components = new System.ComponentModel.Container();
             DevizeBiciclete.Domain.DevizData.ManoperaData manoperaData1 = new DevizeBiciclete.Domain.DevizData.ManoperaData();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.manoperaControl1 = new DevizeBiciclete.UI.Controls.ManoperaControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.stergeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.duplicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.manoperaControl1 = new DevizeBiciclete.UI.Controls.ManoperaControl();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -60,19 +60,60 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 67F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(601, 320);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(601, 324);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // label2
+            // tableLayoutPanel4
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(223, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 41);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Manopere";
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Controls.Add(this.manoperaControl1, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 65);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 190F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(595, 189);
+            this.tableLayoutPanel4.TabIndex = 6;
+            // 
+            // manoperaControl1
+            // 
+            this.manoperaControl1.ContextMenuStrip = this.contextMenuStrip1;
+            this.manoperaControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.manoperaControl1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.manoperaControl1.Location = new System.Drawing.Point(10, 10);
+            manoperaData1.Discount = 0F;
+            manoperaData1.Durata = 0F;
+            manoperaData1.Nume = "";
+            manoperaData1.Pret = 0F;
+            this.manoperaControl1.Manopera = manoperaData1;
+            this.manoperaControl1.Margin = new System.Windows.Forms.Padding(10);
+            this.manoperaControl1.Name = "manoperaControl1";
+            this.manoperaControl1.Size = new System.Drawing.Size(575, 170);
+            this.manoperaControl1.TabIndex = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stergeToolStripMenuItem,
+            this.duplicaToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(130, 52);
+            // 
+            // stergeToolStripMenuItem
+            // 
+            this.stergeToolStripMenuItem.Name = "stergeToolStripMenuItem";
+            this.stergeToolStripMenuItem.Size = new System.Drawing.Size(129, 24);
+            this.stergeToolStripMenuItem.Text = "Sterge";
+            this.stergeToolStripMenuItem.Click += new System.EventHandler(this.stergeToolStripMenuItem_Click);
+            // 
+            // duplicaToolStripMenuItem
+            // 
+            this.duplicaToolStripMenuItem.Name = "duplicaToolStripMenuItem";
+            this.duplicaToolStripMenuItem.Size = new System.Drawing.Size(129, 24);
+            this.duplicaToolStripMenuItem.Text = "Duplica";
+            this.duplicaToolStripMenuItem.Click += new System.EventHandler(this.duplicaToolStripMenuItem_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -82,7 +123,7 @@
             this.tableLayoutPanel3.Controls.Add(this.button2, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 256);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 260);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -111,57 +152,16 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // contextMenuStrip1
+            // label2
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.stergeToolStripMenuItem,
-            this.duplicaToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(130, 52);
-            // 
-            // stergeToolStripMenuItem
-            // 
-            this.stergeToolStripMenuItem.Name = "stergeToolStripMenuItem";
-            this.stergeToolStripMenuItem.Size = new System.Drawing.Size(129, 24);
-            this.stergeToolStripMenuItem.Text = "Sterge";
-            this.stergeToolStripMenuItem.Click += new System.EventHandler(this.stergeToolStripMenuItem_Click);
-            // 
-            // duplicaToolStripMenuItem
-            // 
-            this.duplicaToolStripMenuItem.Name = "duplicaToolStripMenuItem";
-            this.duplicaToolStripMenuItem.Size = new System.Drawing.Size(129, 24);
-            this.duplicaToolStripMenuItem.Text = "Duplica";
-            this.duplicaToolStripMenuItem.Click += new System.EventHandler(this.duplicaToolStripMenuItem_Click);
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Controls.Add(this.manoperaControl1, 0, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 65);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 190F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(595, 185);
-            this.tableLayoutPanel4.TabIndex = 6;
-            // 
-            // manoperaControl1
-            // 
-            this.manoperaControl1.ContextMenuStrip = this.contextMenuStrip1;
-            this.manoperaControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.manoperaControl1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.manoperaControl1.Location = new System.Drawing.Point(10, 10);
-            manoperaData1.Discount = 0F;
-            manoperaData1.Durata = 0F;
-            manoperaData1.Nume = "";
-            manoperaData1.Pret = 0F;
-            this.manoperaControl1.Manopera = manoperaData1;
-            this.manoperaControl1.Margin = new System.Windows.Forms.Padding(10);
-            this.manoperaControl1.Name = "manoperaControl1";
-            this.manoperaControl1.Size = new System.Drawing.Size(575, 170);
-            this.manoperaControl1.TabIndex = 0;
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(223, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(155, 41);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Manopere";
             // 
             // ManoperaListControl
             // 
@@ -171,12 +171,12 @@
             this.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "ManoperaListControl";
-            this.Size = new System.Drawing.Size(601, 320);
+            this.Size = new System.Drawing.Size(601, 324);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

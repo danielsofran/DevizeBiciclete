@@ -75,6 +75,8 @@ namespace DevizeBiciclete.Domain
             return deviz;
         }
 
+        public DevizData Clone() => FromString(ToString());
+
         public static bool operator==(DevizData d1, DevizData d2)
         { 
             if(d1.numar != d2.numar) return false;

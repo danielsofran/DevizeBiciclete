@@ -93,7 +93,7 @@ namespace DevizeBiciclete.Domain
                 if(d1.piese[i] != d2.piese[i]) return false;
             return true;
         }
-        public static bool operator !=(DevizData d1, DevizData d2) => !(d1 == d2);
+        public static bool operator!=(DevizData d1, DevizData d2) => !(d1 == d2);
 
         #region Classes
         public class ClientData
@@ -227,7 +227,7 @@ namespace DevizeBiciclete.Domain
             public float Durata { get { return durata; } set { durata = value; } }
             public float Pret { get { return pret; } set { pret = value; } }
             public float Discount { get { return discount; } set { discount = value; } }
-            public float PretTotal { get { return pret - pret * discount; } }
+            public float PretTotal { get { return pret - pret * (discount/100); } }
 
             public override string ToString()
             {

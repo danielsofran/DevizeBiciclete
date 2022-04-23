@@ -69,7 +69,10 @@ namespace DevizeBiciclete.UI
             {
                 if(devizForm.DialogResult == DialogResult.OK)
                 {
-                    this.Deviz = devizForm.Deviz;
+                    repo.Remove(this.Deviz);
+                    this.Deviz = devizForm.Deviz.Clone();
+                    repo.Add(Deviz);
+                    this.Dispose();
                 }
                 opened = false;
             };

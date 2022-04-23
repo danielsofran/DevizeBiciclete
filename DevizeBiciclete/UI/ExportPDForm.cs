@@ -116,6 +116,7 @@ namespace DevizeBiciclete.UI
                     process.Close();
                 }
                 this.DialogResult = DialogResult.OK;
+                DevizSetari.PDFPath = textBox1.Text;
                 this.Close();
             }
             catch (IOException)

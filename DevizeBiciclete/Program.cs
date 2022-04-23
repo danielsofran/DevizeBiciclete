@@ -16,9 +16,13 @@ namespace DevizeBiciclete
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             DevizSetari.Logo.Save(Application.StartupPath+"logo.png");
+            if (!File.Exists(Application.StartupPath + "setari.settings"))
+                DevizSetari.ToFile(Application.StartupPath + "setari.settings");
+            else
+            {
+                try { DevizSetari.FromFile(Application.StartupPath + "setari.settings"); } catch { }
+            }
             //TestDomain.Run();
-            //Application.Run(new DevizForm());
-            //Application.Run(new TestForm());
             Application.Run(new MainForm());
         }
     }

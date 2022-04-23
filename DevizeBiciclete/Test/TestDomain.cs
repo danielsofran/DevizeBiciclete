@@ -108,7 +108,7 @@ namespace DevizeBiciclete.Test
             testRepo();
             string pdfpath = Application.StartupPath + "testpdf.pdf";
 
-            if (false)
+            if (true)
             {
                 try
                 {

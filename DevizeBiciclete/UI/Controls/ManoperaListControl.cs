@@ -35,6 +35,7 @@ namespace DevizeBiciclete.UI.Controls
                 tableLayoutPanel4.RowStyles.Clear();
                 foreach (Manopera manopera in value)
                     addManopera(manopera, height);
+                if (value.Count == 0) addManopera(new Manopera(), height);
                 this.Height -= initheight;
             }
         }

@@ -17,7 +17,8 @@ namespace DevizeBiciclete.UI.Controls
         {
             InitializeComponent();
         }
-        public bool Valid { get => textBox1.Text.Length > 0 && dateTimePicker1.Value < dateTimePicker2.Value; }
+        public bool Valid { get => 
+                textBox1.Text.Length > 0 && dateTimePicker1.Value <= dateTimePicker2.Value; }
         public Constatare Constatare
         {
             get

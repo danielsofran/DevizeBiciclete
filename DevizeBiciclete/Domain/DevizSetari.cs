@@ -10,12 +10,30 @@ namespace DevizeBiciclete.Domain
     {
         static string titlu = "DEVIZ";
         static string pdfPath = "";
-        static Bitmap logo = Resource.demologo;
+        static Bitmap logo = Resource.logo_bistritz;
 
         public static string Titlu { get => titlu; set => titlu = value; }
         public static string PDFPath { get => pdfPath; set => pdfPath = value; }
         public static Bitmap Logo { get => logo; set => logo = value; }
         public static float TVA = .19f; ////////////////////////////////////////// get from file
+
+        public static void ToFile(string path)
+        {
+            using(StreamWriter sw = new StreamWriter(path))
+            {
+                sw.WriteLine(pdfPath);
+                sw.WriteLine(TVA.ToString());
+            }
+        }
+
+        public static void FromFile(string path)
+        {
+            using(StreamReader sr = new StreamReader(path))
+            {
+                pdfPath = sr.ReadLine();
+                TVA = float.Parse(sr.ReadLine());
+            }
+        }
 
         public static class Service
         {
@@ -23,7 +41,7 @@ namespace DevizeBiciclete.Domain
             static string nume = "Bistritz Bike Shop SRL";
             static string adresa = "Bistrita, str. Valer Braniste 12";
             static string email = "email@email.com";
-            static string telefon = "07457070707"; // gresit?
+            static string telefon = "0745707007";
             static string registru = "J06/105/2018";
             static string ro = "RO38802818";
             //static string cif = "RO38802818";

@@ -64,13 +64,13 @@ namespace DevizeBiciclete.UI.Controls
 
         private void textBoxTel_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(! "1234567890+".Contains(e.KeyChar))
+            if(! "1234567890+".Contains(e.KeyChar) && !char.IsControl(e.KeyChar))
                 e.Handled = true;
         }
 
         private void textBoxNume_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(!char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
+            if(!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && !char.IsControl(e.KeyChar))
                 e.Handled= true;
         }
     }

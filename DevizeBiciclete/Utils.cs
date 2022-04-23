@@ -46,5 +46,21 @@ namespace DevizeBiciclete
                     return true;
             return false;
         }
+
+        public static string FaraDiacritice(this string str)
+        {
+            string rez = str;
+            rez = rez.Replace('ă', 'a');
+            rez = rez.Replace('â', 'a');
+            rez = rez.Replace('î', 'i');
+            rez = rez.Replace('ț', 't');
+            rez = rez.Replace('ș', 's');
+            rez = rez.Replace('Ă', 'A');
+            rez = rez.Replace('Â', 'A');
+            rez = rez.Replace('Î', 'I');
+            rez = rez.Replace('Ș', 'S');
+            rez = rez.Replace('Ț', 'T');
+            return rez;
+        }
     }
 }

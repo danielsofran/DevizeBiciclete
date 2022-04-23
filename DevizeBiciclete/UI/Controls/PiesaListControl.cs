@@ -35,6 +35,8 @@ namespace DevizeBiciclete.UI.Controls
                 tableLayoutPanel3.RowStyles.Clear();
                 foreach (Piesa piesa in value)
                     addPiesa(piesa, height);
+                if (value.Count == 0)
+                    addPiesa(new Piesa(), height);
                 this.Height -= initheight;
             }
         }

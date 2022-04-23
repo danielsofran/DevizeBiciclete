@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevizeBiciclete.Domain;
 using DevizeBiciclete.Repo;
 using Deviz = DevizeBiciclete.Domain.DevizData;
 
@@ -47,6 +48,8 @@ namespace DevizeBiciclete.UI
         void repo_ItemAdded(object sender, RepositoryEventArgs e)
         {
             addDeviz(e.Deviz);
+            if(e.Deviz.TVA != DevizSetari.TVA)
+                DevizSetari.TVA = e.Deviz.TVA;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -60,7 +63,8 @@ namespace DevizeBiciclete.UI
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            repo.ToFile();
+            try { repo.ToFile(); } catch(Exception ex) { MessageBox.Show("Nu am putut salva devizele!\n"+ex.Message); }
+            try { DevizSetari.ToFile(Application.StartupPath + "setari.settings"); } catch { }
         }
 
         private void comboBoxFiltru_SelectedIndexChanged(object sender, EventArgs e)
@@ -108,15 +112,15 @@ namespace DevizeBiciclete.UI
             comboBoxFiltru.SelectedIndex = 0;
             comboBoxFiltru_SelectedIndexChanged(this, EventArgs.Empty);
             lambdas = new List<Func<Deviz, bool>>(10);
-            lambdas.Add((deviz) => deviz.Client.Nume.Contains(textBox1.Text));
-            lambdas.Add((deviz) => deviz.Client.Telefon.Contains(textBox1.Text));
-            lambdas.Add((deviz) => deviz.Constatare.DataInText.Contains(textBox1.Text));
-            lambdas.Add((deviz) => deviz.Constatare.DataOutText.Contains(textBox1.Text));
-            lambdas.Add((deviz) => deviz.Numar.ToString().Contains(textBox1.Text));
-            lambdas.Add((deviz) => deviz.Bicicleta.Model.Contains(textBox1.Text));
-            lambdas.Add((deviz) => deviz.Bicicleta.Marca.Contains(textBox1.Text));
-            lambdas.Add((deviz) => deviz.Bicicleta.Culoare.Contains(textBox1.Text));
-            lambdas.Add((deviz) => deviz.Bicicleta.Serie.Contains(textBox1.Text));
+            lambdas.Add((deviz) => deviz.Client.Nume.ToLower().Contains(textBox1.Text.ToLower()));
+            lambdas.Add((deviz) => deviz.Client.Telefon.ToLower().Contains(textBox1.Text.ToLower()));
+            lambdas.Add((deviz) => deviz.Constatare.DataInText.ToLower().Contains(textBox1.Text.ToLower()));
+            lambdas.Add((deviz) => deviz.Constatare.DataOutText.ToLower().Contains(textBox1.Text.ToLower()));
+            lambdas.Add((deviz) => deviz.Numar.ToString().ToLower().Contains(textBox1.Text.ToLower()));
+            lambdas.Add((deviz) => deviz.Bicicleta.Model.ToLower().Contains(textBox1.Text.ToLower()));
+            lambdas.Add((deviz) => deviz.Bicicleta.Marca.ToLower().Contains(textBox1.Text.ToLower()));
+            lambdas.Add((deviz) => deviz.Bicicleta.Culoare.ToLower().Contains(textBox1.Text.ToLower()));
+            lambdas.Add((deviz) => deviz.Bicicleta.Serie.ToLower().Contains(textBox1.Text.ToLower()));
         }
 
         private void buttonCauta_Click(object sender, EventArgs e)
@@ -126,14 +130,6 @@ namespace DevizeBiciclete.UI
                 if (!lambda(control.Deviz))
                     control.Visible = false;
                 else control.Visible = true;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            repo = Repository.FromFile(Application.StartupPath + "repository.data");
-            flowLayoutPanel1.Controls.Clear();
-            foreach (Deviz deviz in repo.ToList)
-                addDeviz(deviz);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -160,7 +156,7 @@ namespace DevizeBiciclete.UI
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 try { File.Copy(repo.Path, saveFileDialog1.FileName + ".copy", true); }
-                catch(Exception ex) { MessageBox.Show("Eroare:\n"+ex.Message); }
+                catch(Exception ex) { MessageBox.Show("Eroare!\n"+ex.Message); }
             }
         }
 
@@ -168,13 +164,28 @@ namespace DevizeBiciclete.UI
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                Repository repoext = Repository.FromFile(openFileDialog1.FileName);
-                foreach(Deviz deviz in repoext.ToList)
-                    if(repo.Find((deviz2) => deviz == deviz2).Count == 0)
-                    {
-                        repo.Add(deviz);
-                    }
+                try
+                {
+                    Repository repoext = Repository.FromFile(openFileDialog1.FileName);
+                    foreach (Deviz deviz in repoext.ToList)
+                        if (!repo.Contains(deviz))
+                        {
+                            repo.Add(deviz);
+                        }
+                } 
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Eroare la deschiderea fisierului!");
+                }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            repo = Repository.FromFile(Application.StartupPath + "repository.data");
+            flowLayoutPanel1.Controls.Clear();
+            foreach (Deviz deviz in repo.ToList)
+                addDeviz(deviz);
         }
     }
 }

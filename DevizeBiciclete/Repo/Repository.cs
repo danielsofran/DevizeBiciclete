@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using DevizeBiciclete.Domain;
+using Deviz = DevizeBiciclete.Domain.DevizData;
 using Devize = System.Collections.Generic.List<DevizeBiciclete.Domain.DevizData>;
 
 namespace DevizeBiciclete.Repo
@@ -77,6 +78,14 @@ namespace DevizeBiciclete.Repo
                     }
                 }
             ItemsChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        public bool Contains(Deviz deviz)
+        {
+            foreach (DevizData devizData in devize)
+                if (devizData == deviz)
+                    return true;
+            return false;
         }
 
         public Devize Find(Func<DevizData, bool> fnc)

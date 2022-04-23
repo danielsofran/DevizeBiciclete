@@ -37,14 +37,14 @@ namespace DevizeBiciclete.Domain
             celllogo.VerticalAlignment = VerticalAlignment.Top;
             Aspose.Pdf.Image logo = new Aspose.Pdf.Image();
             logo.File = "logo.png";
-            //logo.FixWidth = 120;
-            logo.FixHeight = 50;
+            logo.FixWidth = 105;
+            logo.FixHeight = 60;
             celllogo.Paragraphs.Add(logo);
 
             Cell cellTITLE = row.Cells.Add();
             cellTITLE.Alignment = Aspose.Pdf.HorizontalAlignment.Center;
             cellTITLE.VerticalAlignment = VerticalAlignment.Center;
-            TextFragment fragment = new TextFragment(DevizSetari.Titlu);
+            TextFragment fragment = new TextFragment(DevizSetari.Titlu.FaraDiacritice() + " ");
             fragment.TextState.Font = FontRepository.FindFont("Calibri");
             fragment.TextState.FontSize = 48;
             cellTITLE.Paragraphs.Add(fragment);
@@ -77,7 +77,7 @@ namespace DevizeBiciclete.Domain
 
             TextFragment fragmentSubtitlu;
             initFragmentSubtitlu(out fragmentSubtitlu);
-            fragmentSubtitlu.Text = DevizSetari.Service.Titlu;
+            fragmentSubtitlu.Text = DevizSetari.Service.Titlu.FaraDiacritice();
             cellst.Paragraphs.Add(fragmentSubtitlu);
             initFragmentSubtitlu(out fragmentSubtitlu);
             fragmentSubtitlu.Text = "Client";
@@ -89,32 +89,32 @@ namespace DevizeBiciclete.Domain
 
             TextSegment segmentTextRegular, segmentTextBold;
             initSegmentRegularBold(out segmentTextRegular, out segmentTextBold);
-            segmentTextRegular.Text = DevizSetari.Service.Titlu+": ";
+            segmentTextRegular.Text = DevizSetari.Service.Titlu.FaraDiacritice() + ": ";
             //fragment.Segments.Add(segmentTextRegular);
-            segmentTextBold.Text = DevizSetari.Service.Nume+n;
+            segmentTextBold.Text = DevizSetari.Service.Nume.FaraDiacritice() + n;
             fragment.Segments.Add(segmentTextBold);
 
             initSegmentRegularBold(out segmentTextRegular, out segmentTextBold);
             segmentTextRegular.Text = "C.I.F. ";
-            segmentTextBold.Text = DevizSetari.Service.RO + n;
+            segmentTextBold.Text = DevizSetari.Service.RO.FaraDiacritice() + n;
             fragment.Segments.Add(segmentTextRegular);
             fragment.Segments.Add(segmentTextBold);
 
             initSegmentRegularBold(out segmentTextRegular, out segmentTextBold);
             segmentTextRegular.Text = "Nr. Reg. Com. ";
-            segmentTextBold.Text = DevizSetari.Service.Registru + n;
+            segmentTextBold.Text = DevizSetari.Service.Registru.FaraDiacritice() + n;
             fragment.Segments.Add(segmentTextRegular);
             fragment.Segments.Add(segmentTextBold);
 
             initSegmentRegularBold(out segmentTextRegular, out segmentTextBold);
             segmentTextRegular.Text = "Aresa: ";
-            segmentTextBold.Text = DevizSetari.Service.Adresa + n;
+            segmentTextBold.Text = DevizSetari.Service.Adresa.FaraDiacritice() + n;
             //fragment.Segments.Add(segmentTextRegular);
             fragment.Segments.Add(segmentTextBold);
 
             initSegmentRegularBold(out segmentTextRegular, out segmentTextBold);
             segmentTextRegular.Text = "Telefon: ";
-            segmentTextBold.Text = DevizSetari.Service.Telefon + n;
+            segmentTextBold.Text = DevizSetari.Service.Telefon.FaraDiacritice() + n;
             fragment.Segments.Add(segmentTextRegular);
             fragment.Segments.Add(segmentTextBold);
 
@@ -127,13 +127,13 @@ namespace DevizeBiciclete.Domain
             initSegmentRegularBold(out segmentTextRegular, out segmentTextBold);
             segmentTextRegular.Text = "Nume: ";
             fragment.Segments.Add(segmentTextRegular);
-            segmentTextBold.Text = devizData.Client.Nume + n;
+            segmentTextBold.Text = devizData.Client.Nume.FaraDiacritice() + n;
             fragment.Segments.Add(segmentTextBold);
 
             initSegmentRegularBold(out segmentTextRegular, out segmentTextBold);
             segmentTextRegular.Text = "Telefon: ";
             fragment.Segments.Add(segmentTextRegular);
-            segmentTextBold.Text = devizData.Client.Telefon + n;
+            segmentTextBold.Text = devizData.Client.Telefon.FaraDiacritice() + n;
             fragment.Segments.Add(segmentTextBold);
 
             if (devizData.Client.PersoanaJuridica)
@@ -141,31 +141,31 @@ namespace DevizeBiciclete.Domain
                 initSegmentRegularBold(out segmentTextRegular, out segmentTextBold);
                 segmentTextRegular.Text = "Denumire: ";
                 fragment.Segments.Add(segmentTextRegular);
-                segmentTextBold.Text = devizData.Client.Denumire + n;
+                segmentTextBold.Text = devizData.Client.Denumire.FaraDiacritice() + n;
                 fragment.Segments.Add(segmentTextBold);
 
                 initSegmentRegularBold(out segmentTextRegular, out segmentTextBold);
                 segmentTextRegular.Text = "C.I.F. ";
                 fragment.Segments.Add(segmentTextRegular);
-                segmentTextBold.Text = devizData.Client.RO + n;
+                segmentTextBold.Text = devizData.Client.RO.FaraDiacritice() + n;
                 fragment.Segments.Add(segmentTextBold);
 
                 initSegmentRegularBold(out segmentTextRegular, out segmentTextBold);
                 segmentTextRegular.Text = "Nr. Reg. Com. ";
                 fragment.Segments.Add(segmentTextRegular);
-                segmentTextBold.Text = devizData.Client.Registru + n;
+                segmentTextBold.Text = devizData.Client.Registru.FaraDiacritice() + n;
                 fragment.Segments.Add(segmentTextBold);
 
                 initSegmentRegularBold(out segmentTextRegular, out segmentTextBold);
                 segmentTextRegular.Text = "Adresa: ";
                 fragment.Segments.Add(segmentTextRegular);
-                segmentTextBold.Text = devizData.Client.Adresa + n;
+                segmentTextBold.Text = devizData.Client.Adresa.FaraDiacritice() + n;
                 fragment.Segments.Add(segmentTextBold);
 
                 initSegmentRegularBold(out segmentTextRegular, out segmentTextBold);
                 segmentTextRegular.Text = "Telefon: ";
                 fragment.Segments.Add(segmentTextRegular);
-                segmentTextBold.Text = devizData.Client.TelefonFrima + n; ////////////////////////////////////////// tel firma
+                segmentTextBold.Text = devizData.Client.TelefonFrima.FaraDiacritice() + n; ////////////////////////////////////////// tel firma
                 fragment.Segments.Add(segmentTextBold);
             }
 
@@ -186,25 +186,25 @@ namespace DevizeBiciclete.Domain
             initSegmentRegularBold(out segmentTextRegular, out segmentTextBold);
             segmentTextRegular.Text = "Marca: ";
             fragment.Segments.Add(segmentTextRegular);
-            segmentTextBold.Text = devizData.Bicicleta.Marca + n;
+            segmentTextBold.Text = devizData.Bicicleta.Marca.FaraDiacritice() + n;
             fragment.Segments.Add(segmentTextBold);
 
             initSegmentRegularBold(out segmentTextRegular, out segmentTextBold);
             segmentTextRegular.Text = "Model: ";
             fragment.Segments.Add(segmentTextRegular);
-            segmentTextBold.Text = devizData.Bicicleta.Model + n;
+            segmentTextBold.Text = devizData.Bicicleta.Model.FaraDiacritice() + n;
             fragment.Segments.Add(segmentTextBold);
 
             initSegmentRegularBold(out segmentTextRegular, out segmentTextBold);
             segmentTextRegular.Text = "Culoare: ";
             fragment.Segments.Add(segmentTextRegular);
-            segmentTextBold.Text = devizData.Bicicleta.Culoare + n;
+            segmentTextBold.Text = devizData.Bicicleta.Culoare.FaraDiacritice() + n;
             fragment.Segments.Add(segmentTextBold);
 
             initSegmentRegularBold(out segmentTextRegular, out segmentTextBold);
             segmentTextRegular.Text = "Serie: ";
             fragment.Segments.Add(segmentTextRegular);
-            segmentTextBold.Text = devizData.Bicicleta.Serie + n;
+            segmentTextBold.Text = devizData.Bicicleta.Serie.FaraDiacritice() + n;
             fragment.Segments.Add(segmentTextBold);
 
             page.Paragraphs.Add(fragment);
@@ -341,13 +341,13 @@ namespace DevizeBiciclete.Domain
             celldr.Paragraphs.Add(fragmentSubtitlu);
 
             initFragmentSubtitlu(out fragmentSubtitlu);
-            fragmentSubtitlu.Text = DevizSetari.Service.Nume;
+            fragmentSubtitlu.Text = DevizSetari.Service.Nume.FaraDiacritice();
             fragmentSubtitlu.TextState.FontSize = 18;
             fragmentSubtitlu.TextState.FontStyle = FontStyles.Regular;
             fragmentSubtitlu.Margin.Top = 0;
             cellst.Paragraphs.Add(fragmentSubtitlu);
             initFragmentSubtitlu(out fragmentSubtitlu);
-            fragmentSubtitlu.Text = devizData.Client.Nume;
+            fragmentSubtitlu.Text = devizData.Client.Nume.FaraDiacritice();
             fragmentSubtitlu.TextState.FontSize = 18;
             fragmentSubtitlu.TextState.FontStyle = FontStyles.Regular;
             fragmentSubtitlu.Margin.Top = 0;
@@ -365,14 +365,14 @@ namespace DevizeBiciclete.Domain
             segmentTextRegular.TextState.Font = FontRepository.FindFont("Calibri");
             segmentTextRegular.TextState.FontSize = 16;
             segmentTextRegular.TextState.LineSpacing = 1.2f;
-            segmentTextRegular.Text = textRegular;
+            segmentTextRegular.Text = textRegular.FaraDiacritice();
 
             segmentTextBold = new TextSegment();
             segmentTextBold.TextState.Font = segmentTextRegular.TextState.Font;
             segmentTextBold.TextState.FontSize = segmentTextRegular.TextState.FontSize;
             segmentTextBold.TextState.LineSpacing = segmentTextRegular.TextState.LineSpacing;
             segmentTextBold.TextState.FontStyle = FontStyles.Bold;
-            segmentTextBold.Text = textBold;
+            segmentTextBold.Text = textBold.FaraDiacritice();
         }
         
         private static void initFragmentSubtitlu(out TextFragment fragmentSubtitlu)
@@ -433,7 +433,7 @@ namespace DevizeBiciclete.Domain
             foreach(string colname in colnames)
             {
                 Cell cell = row.Cells.Add();
-                initTableContent(out fragment, colname);
+                initTableContent(out fragment, colname.FaraDiacritice());
                 cell.Paragraphs.Add(fragment);
             }
         }
@@ -446,7 +446,7 @@ namespace DevizeBiciclete.Domain
             fragment.HorizontalAlignment = HorizontalAlignment.Center;
             fragment.VerticalAlignment = VerticalAlignment.Center;
             if(bold) fragment.TextState.FontStyle = FontStyles.Bold;
-            fragment.Text = content;
+            fragment.Text = content.FaraDiacritice();
         }
 
         private static void addRowCellsPiese(Table table, DevizData.PiesaData piesa, int index) 
@@ -472,9 +472,9 @@ namespace DevizeBiciclete.Domain
             }
             initTableContent(out fragment, index.ToString());
             cellindex.Paragraphs.Add(fragment);
-            initTableContent(out fragment, piesa.Cod);
+            initTableContent(out fragment, piesa.Cod.FaraDiacritice());
             cellcod.Paragraphs.Add(fragment);
-            initTableContent(out fragment, piesa.Nume);
+            initTableContent(out fragment, piesa.Nume.FaraDiacritice());
             cellnume.Paragraphs.Add(fragment);
             initTableContent(out fragment, string.Format("{0}", piesa.NrBuc));
             cellnr.Paragraphs.Add(fragment);
@@ -507,7 +507,7 @@ namespace DevizeBiciclete.Domain
             }
             initTableContent(out fragment, index.ToString());
             cellindex.Paragraphs.Add(fragment);
-            initTableContent(out fragment, manopera.Nume);
+            initTableContent(out fragment, manopera.Nume.FaraDiacritice());
             cellnume.Paragraphs.Add(fragment);
             initTableContent(out fragment, string.Format("{0:0.00}", manopera.Durata));
             celldur.Paragraphs.Add(fragment);
@@ -522,7 +522,7 @@ namespace DevizeBiciclete.Domain
         
         private static void addRowCellsTotal(Table table, int index, string titlu, float value, bool bold=false)
         {
-            TextFragment fragment = new TextFragment();
+            TextFragment fragment;
             Row row = table.Rows.Add();
             Cell cellst = row.Cells.Add(), cellmij = row.Cells.Add(), celldr = row.Cells.Add();
             initTableContent(out fragment, index.ToString(), bold);
